@@ -14,8 +14,8 @@ export default function Page() {
 
 
   return (
-    <main className="bg-gray-950 text-gray-50 p-4">
-      <h1 className="text-3xl font-bold">Shopping List</h1>
+    <main className="bg-gray-950 text-gray-50 p-2 m-2">
+      <h1 className="text-3xl font-bold mb-4">Shopping List</h1>
       <NewItem onAddItem={handleAddItem}/>
       <ItemList items={items}/>
     </main>

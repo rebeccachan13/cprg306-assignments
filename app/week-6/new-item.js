@@ -27,6 +27,7 @@ export default function NewItem({onAddItem}) {
 
     return (  
       <>
+      <h3 className="text-xl font-bold">Add New Item</h3>
         <form onSubmit={handleSubmit} className="p-2 m-4 bg-slate-800 text-black max-w-sm w-full">
           <div className="mb-4">
             <input placeholder="Item name"
@@ -65,6 +66,6 @@ export default function NewItem({onAddItem}) {
           </div>
           <button type="submit" className="w-full mt-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-400">+</button>
         </form>
-      </> 
+        </>
       );
     }
