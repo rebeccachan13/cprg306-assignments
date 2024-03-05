@@ -16,7 +16,7 @@ export default function Page() {
 
     const handleItemSelect = (selectedItem) => {
       const cleanedItemName = selectedItem.name.split(',')[0].trim();
-      const cleanName = cleanedItemName.replace(/[^a-zA-Z\s]+$/, ""); // Fix the variable name
+      const cleanName = cleanedItemName.replace(/[^a-zA-Z\s]+$/, ""); 
       setSelectedItemName(cleanName);
   };
   
