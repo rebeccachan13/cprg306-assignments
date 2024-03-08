@@ -39,38 +39,44 @@ export default function MealIdeas({ ingredient }) {
     return (
         <div>
             <h2 className="text-white text-xl font-bold">Meal Ideas</h2>
-            
-            {meals && meals.length > 0 ? (
-                <ul>
-                    <p>Here are some meal ideas using {ingredient}:</p>
-                    {meals.map((meal) => (
-                        <li key={meal.idMeal} onClick={() => handleSelectMeal(meal.idMeal)} style={{ cursor: 'pointer' }} className="bg-gray-900 max-w-sm p-2 m-1">
-                            <h2>{meal.strMeal}</h2>
-                            {selectedMeal?.idMeal === meal.idMeal && (
-                                <div className="text-xs text-gray-400 ml-2">Ingredients needed:
-                                    <ul>
-                                        <li className="ml-6">
-                                            {Array.from({ length: 20 }).map((_, index) => {
-                                                const ingredientName = selectedMeal[`strIngredient${index + 1}`];
-                                                const ingredientMeasure = selectedMeal[`strMeasure${index + 1}`];
-                                                if (ingredientName && ingredientName.trim() !== "") {
-                                                    return (
-                                                        <li key={ingredientName}>
-                                                            {`${ingredientName} (${ingredientMeasure})`}
-                                                        </li>
-                                                    );
-                                                }
-                                                return null;
-                                            })}
-                                        </li>
-                                    </ul>
-                                </div>
-                            )}
-                        </li>
-                    ))}
-                </ul>
+
+            {ingredient === " " ? (
+                <p>Select an item to see meal ideas</p>
             ) : (
-                <p>No meal ideas found for {ingredient}</p>
+                meals && meals.length > 0 ? (
+                    <div>
+                        <p>Here are some meal ideas using {ingredient}:</p>
+                        <ul>
+                            {meals.map((meal) => (
+                                <li key={meal.idMeal} onClick={() => handleSelectMeal(meal.idMeal)} style={{ cursor: 'pointer' }} className="bg-gray-900 max-w-sm p-2 m-1">
+                                    <h2>{meal.strMeal}</h2>
+                                    {selectedMeal?.idMeal === meal.idMeal && (
+                                        <div className="text-xs text-gray-400 ml-2">Ingredients needed:
+                                            <ul>
+                                                <li className="ml-6">
+                                                    {Array.from({ length: 20 }).map((_, index) => {
+                                                        const ingredientName = selectedMeal[`strIngredient${index + 1}`];
+                                                        const ingredientMeasure = selectedMeal[`strMeasure${index + 1}`];
+                                                        if (ingredientName && ingredientName.trim() !== "") {
+                                                            return (
+                                                                <li key={ingredientName}>
+                                                                    {`${ingredientName} (${ingredientMeasure})`}
+                                                                </li>
+                                                            );
+                                                        }
+                                                        return null;
+                                                    })}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ) : (
+                    <p>No meal ideas found for {ingredient}</p>
+                )
             )}
         </div>
     );
